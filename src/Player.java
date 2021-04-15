@@ -1,29 +1,17 @@
 import TypeOfWeapon.*;
 
 public class Player {
-    private Weapon[] weaponSlots;
+    private final Weapon[] weapons;
 
-    public Player() {
-        weaponSlots = new Weapon[] {
-                new BigGun(),
-                new Pistol(),
-                new WaterPistol(),
-                new MachineGun(),
-                new Slingshot(),
-                new RPG()
-        };
+    public Player(Weapon[] weapons) {
+        this.weapons = weapons;
     }
 
-    public  int getSlotCount() {
-        return weaponSlots.length;
+    public int getSlotsCount() {
+        return weapons.length;
     }
 
-    public void showWithWeapon(int slot) {
-        if (slot >= getSlotCount() || slot < -1) {
-            System.out.println("IllegalArgumentException");
-        } else {
-            Weapon weapon = weaponSlots[slot];
-            weapon.shot();
-        }
+    public void shotWithWeapon(int slot) {
+        weapons[slot].shot();
     }
 }

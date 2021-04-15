@@ -1,7 +1,5 @@
 package TypeOfWeapon;
 
-public class Weapon {
-    public void shot() {
-        System.out.println("Shot!");
-    }
+public abstract class Weapon {
+    public abstract void shot();
 }
