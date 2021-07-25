@@ -1,17 +1,29 @@
 import TypeOfWeapon.*;
 
 public class Player {
-    private final Weapon[] weapons;
+    // Указываем тип данных Weapon, который будет храниться в "слотах игрока"
+    private Weapon[] weaponSlots;
 
-    public Player(Weapon[] weapons) {
-        this.weapons = weapons;
+    public Player() {
+        // Снаряжаем нашего игрока
+        weaponSlots = new Weapon[]{
+                new Automat(),
+                new Gun(),
+                new RPG(),
+                new Slingshot(),
+                new WaterPistol()
+        };
     }
 
     public int getSlotsCount() {
-        return weapons.length;
+        // length - позволяет узнать, сколько всего слотов с оружием у игрока
+        return weaponSlots.length;
     }
 
     public void shotWithWeapon(int slot) {
-        weapons[slot].shot();
+        // Получаем оружие из выбранного слота
+        Weapon weapon = weaponSlots[slot];
+        // Огонь!
+        weapon.shot();
     }
 }
